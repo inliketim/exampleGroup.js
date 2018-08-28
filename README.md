@@ -34,7 +34,7 @@ Well-named and safe shortcut method for iterating through an array of examples i
     ];
     // Only the last example will pass, and the others will fail as they should.
     // The exampleGroup() function handles the necessary variable scoping to ensure the right example gets passed to each jasmine beforeEach and it block.
-    exampleGroup(examples, function(){
+    exampleGroup(examples, function(example){
       beforeEach(function(){
         window.myValue = example.setup;
       });
