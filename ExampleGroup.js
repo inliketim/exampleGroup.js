@@ -29,7 +29,6 @@ exampleGroup = function(examples, testBuildingFunction){
   // It also provides a nice expressive name instead of having to write a possibly cryptic for-each loop every time an example-group concept is desired.
   for(var i = 0; i<examples.length; i++){
     example = examples[i];
-    args = [example]
-    testBuildingFunction.apply(this, args);
+    testBuildingFunction.call(this, example);
   };
 };

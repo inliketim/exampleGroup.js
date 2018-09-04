@@ -1,5 +1,10 @@
 # exampleGroup.js
-Well-named and safe shortcut method for iterating through an array of examples in a javascript test suite
+Well-named and safe shortcut method for iterating through an example group in jasmine or other javascript testing frameworks. An example group is an array where each item provides values for test setup and expectations, and we iterate through the array to actually define a test for each example.
+
+It's very easy in javascript to accidentally refer only to the last value of a for-loop iteration when defining a function for each member of the array. This can be especially dangerous in the context of testing suites,since all examples will pass as long as the last one does.
+
+ExampleGroup.js handles closure and scoping concerns when iterating through an array of examples, so javascript testing developers don't have to remember to do so. 
+It also provides a nice expressive name instead of having to write a possibly cryptic for-each loop every time an example-group concept is desired.
 
 ### (Broken!) example group in jasmine without this method:
 ```

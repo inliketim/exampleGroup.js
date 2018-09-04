@@ -2,6 +2,11 @@
 // Should work equally well with other javascript test frameworks.
 // The problem being solved is related to iteration and scoping/closures, not anything specific to jasmine.
 
+describe("NOTE: Be sure to read the test output carefully, since a broken ExampleGroup.js could fail by showing all tests as passing (just like the broken approach it's intented to replace).", function(){
+  it("In case of bad ExampleGroup.js code,  the test descriptions may fail to make sense, providing a clue that something isn't right.", function(){
+    expect(true).toEqual(true)
+  });
+});
 describe("unsafe example group (iterating through an array of examples instead of using exampleGroup function)", function(){
   describe("when the last example should succeed but all others should fail", function(){
     var examples = [
@@ -16,7 +21,7 @@ describe("unsafe example group (iterating through an array of examples instead o
         beforeEach(function(){
           window.setupValue = example.setup;
         });
-        it("shows every example as passing even though most should fail",function(){
+        it("shows each example as succeeding, though all but one should fail",function(){
           expect(window.setupValue).toEqual(example.expectation);
         });
       });
@@ -36,7 +41,7 @@ describe("unsafe example group (iterating through an array of examples instead o
         beforeEach(function(){
           window.setupValue = example.setup;
         });
-        it("would show every example as failing even though most should succeed",function(){
+        it("would show each example as failing, though all but one should succeed",function(){
           // Because this is a test suite, we don't want to verify by causing any actual failures.
           // We will do the next best thing by inverting the expectation with a .not modifier.
           // This gives us a high level of confidence that the original expectation would fail if we removed the .not.
